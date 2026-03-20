@@ -3,18 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Em Ngân Flowers</title>
+
+<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 
-/* ===== BODY ===== */
-body{
+/* ===== RESET ===== */
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* ===== BODY ===== */
+html, body{
+height:100%;
+}
+
+body{
+display:flex;
+flex-direction:column;
 font-family: 'Poppins', sans-serif;
 background: linear-gradient(120deg,#fff,#ffe6f0);
 overflow-x:hidden;
 }
 
-/* nền blur ảnh hoa */
+/* nền hoa mờ */
 body::before{
 content:"";
 position:fixed;
@@ -23,30 +38,44 @@ height:100%;
 background:url("https://images.unsplash.com/photo-1490750967868-88aa4486c946");
 background-size:cover;
 background-position:center;
-opacity:0.12;
+opacity:0.08;
 z-index:-1;
 }
 
 /* ===== HEADER ===== */
 header{
-background: linear-gradient(45deg,#ff4d88,#ff1a66);
+background: linear-gradient(45deg,#ff9eb5,#ff6f91);
 color:white;
-padding:25px;
 text-align:center;
-font-size:34px;
-letter-spacing:3px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+padding:25px;
+font-size:45px;
+font-family: 'Great Vibes', cursive;
+letter-spacing:2px;
+text-shadow:0 0 10px rgba(255,255,255,0.8);
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
 }
 
 /* ===== TITLE ===== */
 h2{
-font-family: 'Poppins', sans-serif;
-font-weight:500;
+text-align:center;
+margin-top:25px;
+color:#555;
+font-weight:400;
 letter-spacing:1px;
+}
+
+/* ===== LINE ===== */
+.line{
+width:60px;
+height:3px;
+background:#ff6f91;
+margin:10px auto 20px;
+border-radius:10px;
 }
 
 /* ===== CONTAINER ===== */
 .container{
+flex:1;
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
@@ -56,10 +85,10 @@ padding:20px;
 /* ===== CARD ===== */
 .product{
 background:white;
-margin:20px;
+margin:15px;
 padding:15px;
 border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,0.2);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 width:240px;
 transition:0.4s;
 position:relative;
@@ -67,7 +96,7 @@ overflow:hidden;
 }
 
 .product:hover{
-transform:translateY(-10px) scale(1.05);
+transform:translateY(-8px) scale(1.03);
 }
 
 /* ảnh */
@@ -80,7 +109,7 @@ transition:0.4s;
 }
 
 .product:hover img{
-transform:scale(1.1);
+transform:scale(1.08);
 }
 
 /* badge */
@@ -88,47 +117,60 @@ transform:scale(1.1);
 position:absolute;
 top:10px;
 left:10px;
-background:#ff1a66;
+background:#ff6f91;
 color:white;
-padding:5px 10px;
-border-radius:8px;
+padding:4px 8px;
+border-radius:6px;
 font-size:12px;
+}
+
+/* ===== TEXT ===== */
+.product h3{
+margin-top:10px;
+font-weight:600;
+}
+
+.product p{
+color:#777;
+margin-top:5px;
 }
 
 /* ===== BUTTON ===== */
 button{
-background: linear-gradient(45deg,#ff4d88,#ff1a66);
+background: linear-gradient(45deg,#ff9eb5,#ff6f91);
 color:white;
 border:none;
-padding:12px;
+padding:10px;
 margin-top:10px;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
 width:100%;
-font-weight:bold;
+font-weight:600;
 transition:0.3s;
 }
 
 button:hover{
 transform:scale(1.05);
-box-shadow:0 5px 15px rgba(255,0,100,0.4);
+box-shadow:0 5px 15px rgba(255,105,135,0.4);
 }
 
 /* ===== FOOTER ===== */
 footer{
-margin-top:30px;
-padding:20px;
-background: linear-gradient(45deg,#ff4d88,#ff1a66);
+background: linear-gradient(45deg,#ff9eb5,#ff6f91);
 color:white;
 text-align:center;
+padding:15px;
+font-size:14px;
+margin-top:auto;
 }
 
 /* ===== HOA BAY ===== */
 .flower{
 position:fixed;
 top:-50px;
-font-size:20px;
+font-size:18px;
 animation:fall linear infinite;
+opacity:0.7;
 }
 
 @keyframes fall{
@@ -141,9 +183,10 @@ animation:fall linear infinite;
 
 <body>
 
-<header>🌸 EM NGÂN FLOWERS 🌸</header>
+<header>🌸 Em Ngân Flowers 🌸</header>
 
 <h2>Giỏ hoa xinh xắn dành cho bạn 💐</h2>
+<div class="line"></div>
 
 <div class="container">
 
@@ -177,20 +220,20 @@ Liên hệ: 038596113
 
 <script>
 
-/* mở zalo */
+/* đặt hàng zalo */
 function order(product){
 let phone = "8438596113";
 let text = "Tôi muốn đặt: " + product;
 window.open("https://zalo.me/"+phone+"?text="+encodeURIComponent(text));
 }
 
-/* tạo hoa bay */
-for(let i=0;i<20;i++){
+/* hoa bay */
+for(let i=0;i<15;i++){
 let flower=document.createElement("div");
 flower.className="flower";
 flower.innerHTML="🌸";
 flower.style.left=Math.random()*100+"%";
-flower.style.animationDuration=(5+Math.random()*5)+"s";
+flower.style.animationDuration=(6+Math.random()*5)+"s";
 document.body.appendChild(flower);
 }
 
