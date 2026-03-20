@@ -7,39 +7,95 @@
 <style>
 
 body{
-font-family: Arial;
-background:#ffe6f0;
-text-align:center;
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+position: relative;
+overflow-x: hidden;
 }
 
+/* hoa nền */
+body::before{
+content: "";
+position: fixed;
+width: 100%;
+height: 100%;
+background: url('https://i.imgur.com/8Km9tLL.png') repeat;
+opacity: 0.08;
+z-index: -1;
+}
+
+/* header */
 header{
-background:#ff4d88;
-color:white;
-padding:25px;
-font-size:35px;
+background: rgba(255, 77, 136, 0.9);
+color: white;
+padding: 25px;
+text-align: center;
+font-size: 32px;
+letter-spacing: 2px;
+backdrop-filter: blur(10px);
 }
 
+/* tiêu đề */
+h2{
+text-align:center;
+margin-top:30px;
+color:#444;
+}
+
+/* container */
+.container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+/* card sản phẩm */
 .product{
-background:white;
-margin:20px;
-padding:20px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-display:inline-block;
-width:250px;
+background: rgba(255,255,255,0.7);
+backdrop-filter: blur(10px);
+margin:15px;
+padding:15px;
+border-radius:15px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+width:230px;
+transition: 0.3s;
 }
 
+.product:hover{
+transform: translateY(-10px) scale(1.03);
+}
+
+/* ảnh */
+.product img{
+width:100%;
+border-radius:12px;
+}
+
+/* button */
 button{
-background:#ff4d88;
+background: linear-gradient(45deg, #ff4d88, #ff1a66);
 color:white;
 border:none;
-padding:10px 20px;
-border-radius:5px;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
 cursor:pointer;
+width:100%;
+font-weight:bold;
 }
 
 button:hover{
-background:#ff1a66;
+opacity:0.85;
+}
+
+/* footer */
+footer{
+margin-top:30px;
+padding:20px;
+background: rgba(255,77,136,0.9);
+color:white;
+text-align:center;
 }
 
 </style>
